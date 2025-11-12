@@ -1,4 +1,4 @@
-package com.kaankaplan.road_bed.config;
+package com.kaankaplan.road_bed.config.redis;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

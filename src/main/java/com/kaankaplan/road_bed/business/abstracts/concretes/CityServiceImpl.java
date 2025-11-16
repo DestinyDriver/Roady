@@ -1,4 +1,4 @@
-package com.kaankaplan.road_bed.business.concretes;
+package com.kaankaplan.road_bed.business.abstracts.concretes;
 
 import com.kaankaplan.road_bed.business.abstracts.CityService;
 import com.kaankaplan.road_bed.entities.City;

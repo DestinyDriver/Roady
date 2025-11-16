@@ -1,4 +1,4 @@
-package com.kaankaplan.road_bed.business.concretes;
+package com.kaankaplan.road_bed.business.abstracts.concretes;
 
 import com.kaankaplan.road_bed.business.abstracts.RefreshTokenService;
 import com.kaankaplan.road_bed.config.jwt.JwtProviderService;

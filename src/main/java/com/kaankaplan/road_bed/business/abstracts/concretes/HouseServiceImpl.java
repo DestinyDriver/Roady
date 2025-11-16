@@ -1,4 +1,4 @@
-package com.kaankaplan.road_bed.business.concretes;
+package com.kaankaplan.road_bed.business.abstracts.concretes;
 
 import com.kaankaplan.road_bed.business.abstracts.CityService;
 import com.kaankaplan.road_bed.business.abstracts.HouseService;
@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -33,12 +34,17 @@ public class HouseServiceImpl implements HouseService {
     }
 
     @Override
-        public House save(House house, MultipartFile multipartFile) {
+        public House save(House house, List<MultipartFile> multipartFiles) {
 
-            Map uploadResults =  imageUploadService.uploadImage(multipartFile);
-            String imageUrl = (String) uploadResults.get("url");
+            List<String> houseImages = new ArrayList<>();
 
-            house.imageUrl = imageUrl;
+            multipartFiles.forEach((file) -> {
+                Map uploadResults =  imageUploadService.uploadImage(file);
+                String imageUrl = (String) uploadResults.get("url");
+                houseImages.add(imageUrl);
+            });
+
+            house.imageUrlList = houseImages;
 
             return houseRepository.save(house);
     }
